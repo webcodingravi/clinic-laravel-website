@@ -28,13 +28,13 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="user_id">@lang('Patient Name')</label>
-                            <p>{{ $patientAppointment->user->name }}</p>
+                            <p>{{ $patientAppointment->user->name ?? '' }}</p>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="doctor_id">@lang('Doctor Name')</label>
-                            <p>{{ $patientAppointment->doctor->name }}</p>
+                            <p>{{ $patientAppointment->doctor->name ?? '' }}</p>
                         </div>
                     </div>
                 </div>

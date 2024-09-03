@@ -78,7 +78,7 @@
 								<input type="text" name="appointment_date" id="appointment_date" class="form-control flatpickr" placeholder="@lang('Appointment Date')*" required>
 							</div>
 							<div class="form-group">
-								<select id="appointment_slot" name="appointment_slot" class="form-control" required>
+								<select id="appointment_slot" name="appointment_slot" class="form-control"  required>
 									<option value="">@lang('Select Appointment Slot')*</option>
 								</select>
 							</div>

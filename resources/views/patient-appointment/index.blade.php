@@ -88,20 +88,30 @@
                         </thead>
                         <tbody>
                             @foreach ($patientAppointments as $patientAppointment)
-                                <tr>
-                                    <td>{{ $patientAppointment->id }}</td>
-                                    <td>{{ $patientAppointment->doctor->name }}</td>
-                                    <td>{{ $patientAppointment->user->name }}</td>
-                                    <td>{{ date($companySettings->date_format, strtotime($patientAppointment->appointment_date)) }}</td>
-                                    <td>{{ $patientAppointment->start_time . ' - ' . $patientAppointment->end_time }}</td>
-                                    <td>
-                                        <a href="{{ route('patient-appointments.show', $patientAppointment) }}" class="btn btn-info btn-outline btn-circle btn-lg" data-toggle="tooltip" title="@lang('View')"><i class="fa fa-eye ambitious-padding-btn"></i></a>&nbsp;&nbsp;
-                                        @can('doctor-schedule-delete')
-                                            <a href="#" data-href="{{ route('patient-appointments.destroy', $patientAppointment) }}" class="btn btn-info btn-outline btn-circle btn-lg" data-toggle="modal" data-target="#myModal" title="@lang('Delete')"><i class="fa fa-trash ambitious-padding-btn"></i></a>
-                                        @endcan
-                                    </td>
-                                </tr>
-                            @endforeach
+                            <tr>
+                                <td>{{ $patientAppointment->id }}</td>
+
+                                <td>  
+                                    {{$patientAppointment->doctor->name ?? ''}}
+                                </td>
+
+                                    <td>{{$patientAppointment->user->name ?? ''}}</td>
+                              
+                                <td>{{ date($companySettings->date_format, strtotime($patientAppointment->appointment_date)) }}</td>
+                                <td>{{ $patientAppointment->start_time . ' - ' . $patientAppointment->end_time }}</td>
+                                <td>
+                                    <a href="{{ route('patient-appointments.show', $patientAppointment) }}" class="btn btn-info btn-outline btn-circle btn-lg" data-toggle="tooltip" title="@lang('View')"><i class="fa fa-eye ambitious-padding-btn"></i></a>&nbsp;&nbsp;
+                                    @can('doctor-schedule-delete')
+                                        <a href="#" data-href="{{ route('patient-appointments.destroy', $patientAppointment) }}" class="btn btn-info btn-outline btn-circle btn-lg" data-toggle="modal" data-target="#myModal" title="@lang('Delete')"><i class="fa fa-trash ambitious-padding-btn"></i></a>
+                                    @endcan
+                                </td>
+                            </tr>
+                        @endforeach
+
+                   
+
+
+                         
                         </tbody>
                     </table>
                     {{ $patientAppointments->withQueryString()->links() }}

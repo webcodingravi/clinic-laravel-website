@@ -33,9 +33,12 @@ class DoctorScheduleController extends Controller
         if($roleName['0'] == 'Doctor') {
             $id = Auth::user()->id;
             $doctorSchedules = DoctorSchedule::with(['user'])->where('user_id', $id)->paginate(10);
+         
         } else {
             $doctorSchedules = DoctorSchedule::with(['user'])->paginate(10);
         }
+
+
 
         return view('doctor-schedule.index', compact('doctorSchedules'));
     }

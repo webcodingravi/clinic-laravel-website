@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Exports\UserExport;
-use App\Http\Controllers\Controller;
-use App\Models\Company;
-use App\Models\User;
-use Spatie\Permission\Models\Role;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Http\Request;
-use Maatwebsite\Excel\Facades\Excel;
 use Session;
+use App\Models\User;
+use App\Models\Company;
+use App\Exports\UserExport;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Models\Role;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+use Maatwebsite\Excel\Facades\Excel;
 
 /**
  * Class UserController
@@ -277,7 +278,7 @@ class UserController extends Controller
         $input['name'] = $request->name;
         $input['email'] = $request->email;
         if (!empty($request->password)) {
-            $input['password'] = bcrypt($input['password']);
+            $input['password'] = Hash::make($request->password);
         } else {
             $input['password'] = $password;
         }

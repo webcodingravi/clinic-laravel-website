@@ -93,7 +93,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-fingerprint"></i></span>
                                     </div>
-                                    <input class="form-control ambitious-form-loading @error('password_confirmation') is-invalid @enderror" name="confirm_password" id="confirm_password" type="password" placeholder="{{ __('Type Your Confirm Password Here') }}">
+                                    <input class="form-control ambitious-form-loading @error('password_confirmation') is-invalid @enderror" name="password_confirmation" id="password_confirmation" type="password" placeholder="{{ __('Type Your Confirm Password Here') }}">
                                     @error('password_confirmation')
                                         <div class="invalid-feedback">
                                             {{ $message }}

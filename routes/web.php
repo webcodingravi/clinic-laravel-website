@@ -23,13 +23,13 @@ Route::get('/lang',[
 ]);
 
 Route::get('/', function () {
-    try {
-        DB::connection()->getPdo();
-        if (!Schema::hasTable('application_settings'))
-            return redirect('/install');
-    } catch (\Exception $e) {
-        return redirect('/install');
-    }
+    // try {
+    //     DB::connection()->getPdo();
+    //     if (!Schema::hasTable('application_settings'))
+    //         return redirect('/install');
+    // } catch (\Exception $e) {
+    //     return redirect('/install');
+    // }
 
     return view('frontend.index', ['contents' => json_decode(FrontEnd::find(1)->content)]);
 });

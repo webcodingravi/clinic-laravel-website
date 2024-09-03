@@ -42,7 +42,7 @@
                         @foreach ($doctorSchedules as $doctorSchedule)
                             <tr>
                                 <td>{{ $doctorSchedule->id }}</td>
-                                <td>{{ $doctorSchedule->user->name }}</td>
+                                <td>{{ $doctorSchedule->user->name ?? '' }}</td>
                                 <td>{{ $doctorSchedule->weekday }}</td>
                                 <td>{{ $doctorSchedule->start_time . ' - ' . $doctorSchedule->end_time }}</td>
                                 <td>

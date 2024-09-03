@@ -33,7 +33,12 @@ class PatientAppointmentController extends Controller
      */
     public function index(Request $request)
     {
-        $patientAppointments = $this->filter($request)->paginate(10);
+
+        // $patientAppointments = $this->filter($request)->paginate(10);
+
+        $patientAppointments = PatientAppointment::with(['user','doctor'])->paginate(10);
+
+        
 
         if (auth()->user()->hasRole('Doctor'))
             $doctors = User::role('Doctor')->where('id', auth()->id())->where('status', '1')->get(['id', 'name']);
