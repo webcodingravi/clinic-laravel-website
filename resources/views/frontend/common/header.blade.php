@@ -2,7 +2,7 @@
     $headers = json_decode(\App\Models\FrontEnd::find(1)->content);
 @endphp
 <!--header-->
-<section class="w3l-top-header-content">
+<section class="w3l-top-header-content sticky-top">
     <div class="hny-top-menu">
         <div class="container">
             <div class="row">
@@ -16,20 +16,32 @@
                     </ul>
                 </div>
                 <div class="social-top col-lg-6 mt-lg-0 mt-sm-3">
-                    <div class="top-bar-text"><a class="bk-button" href="#">@lang('BOOK ONLINE') </a> @lang('You can request appointment in 24 hours')</div>
+                    <div class="top-bar-text"><a class="bk-button" href="{{ route('BookOnline') }}">@lang('BOOK ONLINE') </a> @lang('You can request appointment in 24 hours')</div>
                 </div>
 
             </div>
         </div>
     </div>
-</section>
+
 <!--//top-header-content-->
 <!--header-->
-<header class="w3l-header-nav">
+<header class="w3l-header-nav bg-white">
     <!--/nav-->
     <nav class="navbar navbar-expand-lg navbar-light px-lg-0 py-0 px-3 stroke">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">{{ $ApplicationSetting->item_name ?? '' }}</a>
+            <a class="navbar-brand" href="{{ url('/') }}">
+
+                @if (!empty($ApplicationSetting->logo))
+                <img src="{{'assets/images/'.$ApplicationSetting->logo}}" width="51" alt="">
+
+                @else
+                {{ $ApplicationSetting->item_name ?? '' }}
+
+                @endif
+                
+           
+              
+                </a>
             <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -53,9 +65,9 @@
                         <a class="nav-link" href="{{ url('/contact') }}">@lang('Contact')</a>
                     </li>
 
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a id="custom-header-nav-item" class="btn btn-primary" href="{{ url('/login') }}">@lang('Log in')</a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item dropdown">
                         @php
                             $locale = App::getLocale();
@@ -82,4 +94,5 @@
     </nav>
     <!--//nav-->
 </header>
+</section>
 <!-- //header -->

@@ -8,7 +8,7 @@
 	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.png') }}">
     <meta name="site-url" content="{{ url('/') }}">
     <meta name="locale" content="{{ session('locale') }}">
-	<title>{{ $ApplicationSetting->item_name }} | @lang('Home') :: ambitiousit.net</title>
+	<title>{{ $ApplicationSetting->item_name }} | @lang('Home')</title>
 	<!-- Font Awesome Icons -->
 	<link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome-free/css/all.css') }}">
 	<!-- Template CSS -->
@@ -36,20 +36,23 @@
 	<section class="w3l-about5">
 		<div class="container-fluid px-0">
 			<div class="history-info position-relative">
-				<div class="heading text-center mx-auto">
+				<div class="heading text-center mx-auto mt-4">
 					<h3 class="hny-title two">{{ $contents->headline ?? '' }}</h3>
 					<p class="mt-3">{{ $contents->tagline ?? '' }}</p>
 					<a href="#small-dialog" class="popup-with-zoom-anim play-view text-center position-absolute">
-						<span class="video-play-icon">
+						<div class="read">
+							<a class="btn mt-4" href="{{url('/about')}}">Read More..</a>
+						</div>
+						{{-- <span class="video-play-icon">
 							<span class="fas fa-play"></span>
-						</span>
+						</span> --}}
 					</a>
 				</div>
 				<div class="position-relative">
 					<!-- dialog itself, mfp-hide class is required to make dialog hidden -->
-					<div id="small-dialog" class="zoom-anim-dialog mfp-hide">
-						<iframe src="https://www.youtube-nocookie.com/embed/I5fxqp7zh1c?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					</div>
+					{{-- <div id="small-dialog" class="zoom-anim-dialog mfp-hide">
+						<iframe src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div> --}}
 				</div>
 			</div>
 		</div>

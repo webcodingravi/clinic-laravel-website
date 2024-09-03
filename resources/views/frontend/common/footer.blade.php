@@ -72,8 +72,7 @@
         </div>
     </div>
     <div class="cpy-right py-3">
-        <p class="text-center">Copyright © {{ date('Y') }} {{ $ApplicationSetting->item_name }}. All rights reserved | Developed by
-            <a href="https://ambitiousit.net" target="_blank"> ambitiousit.</a>
+        <p class="text-center">Copyright © {{ date('Y') }} {{ $ApplicationSetting->item_name }}. All rights reserved </a>
         </p>
     </div>
     <!-- move top -->

@@ -68,6 +68,7 @@ class ApplicationSettingController extends Controller
             $logo_text = $request->logo;
             $logo_text_new_name = 'logo.png';
             $logo_text->move('assets/images/', $logo_text_new_name);
+            
         }
 
         if($request->hasFile('favicon'))
@@ -80,6 +81,9 @@ class ApplicationSettingController extends Controller
             $favicon = 'favicon.png';
         }
 
+        $logo_text_new_name = 'logo.png';
+        $favicon = 'favicon.png';
+
         $data = ApplicationSetting::updateOrCreate(['id' => "1"], [
             'item_name' => $request->item_name,
             'item_short_name' => $request->item_short_name,
@@ -88,6 +92,7 @@ class ApplicationSettingController extends Controller
             'company_email' => $request->company_email,
             'language' => $request->language,
             'time_zone' => $request->time_zone,
+            'logo' => $logo_text_new_name,
             'favicon' => $favicon,
         ]);
 

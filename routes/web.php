@@ -1,10 +1,11 @@
 <?php
 
 use App\Models\FrontEnd;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
+use App\Http\Controllers\FrontEndController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,8 @@ Route::get('/contact', function () {
 });
 
 Route::post('/contact-form', [App\Http\Controllers\ContactUsFormController::class, 'store'])->name('contact-form.store');
+
+Route::get('/book-online', [FrontEndController::class, 'BookOnline'])->name('BookOnline');
 
 Auth::routes(['register' => false]);
 

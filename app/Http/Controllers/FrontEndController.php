@@ -266,4 +266,10 @@ class FrontEndController extends Controller
             'image_files.*' => ['image', 'mimes:jpg,jpeg,png']
         ]);
     }
+
+
+
+    public function BookOnline() {
+        return view('frontend.book-online');
+    }
 }
